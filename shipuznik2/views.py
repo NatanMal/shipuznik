@@ -13,9 +13,11 @@ def home(request):
         phone = request.POST["phone"]
         email = request.POST["email"]
         city = request.POST["city"]
+        skill =request.POST["skill"]
         skills = Skills.objects.all()
         worker = Worker(name = name, phone = phone, email = email, city = city)
         worker.save()
+        Skills.objects.get(skill_name=skill).workers.add(worker)
         return render(request, "index.html",{"skills": skills})
 
 def show(request):
