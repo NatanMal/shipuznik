@@ -1,24 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <form action="" method="post">
-        <input type="text" name = "name" placeholder="name"> <br>
-        <input type="text" name = "email" placeholder="email"> <br>
-        <input type="text" name = "phone" placeholder="phone"> <br>
-        <input type="text" name = "city" placeholder="city"> <br>
-        <select name="skill">
-            {% for skill in skills%}
-            <option value={{skill.skill_name}}>{{skill.skill_name}}</option>
-            {% endfor%}
-          </select>
-        <input type="submit" >
-    </form>
-    
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+    <div class="wrapper">
+        <div class="nav">
+            <div class="nav-item"><a href="/profile">Profile</a></div>
+            <div class="nav-item"><a href="/">registration</a></div>
+            <div class="nav-item"><a href="/">projects</a></div>
+            <div class="nav-item"><a href="/login">login</a></div>
+            <div class="nav-item"><a href="/">admin restapi</a></div>
+            
+        </div>
+        <div class="mom">
+            <div class="form">
+                <form action="" method="post">
+                <input type="text" name="name" placeholder="name"> <br>
+                <input type="text" name="email" placeholder="email"> <br>
+                <input type="text" name="phone" placeholder="phone"> <br>
+                <input type="text" name="city" placeholder="city"> <br>
+                <select name="type">
+                    {% for skill in skills %}
+                    <option value={{skill.skill_name}}>{{skill.skill_name}}</option>
+                    {% endfor %}
+                <input type="submit">
+                </select>
+                </form>
+            </div>
+         </div>
+        </div>
+    </div>
+
+{% endblock content %}

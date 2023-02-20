@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Worker,Skills
+from django.http import HttpResponse
 
 # Create your views here.
 
@@ -24,6 +25,41 @@ def show(request):
     if request.method == "GET":
         worker = Worker.objects.all()
     return render(request, "show.html", {"worker":  worker})
+
+def login(request):
+    if request.method == "GET":
+        return render(request, "login.html")
+    if request.method == "POST":
+        name = request.POST["name"]
+        password = request.POST["password"]
+        type = request.POST["type"]
+        if type == "worker":   
+            input_name = Worker.objects.filter(name = name ).values_list('password', flat = True)
+            print(input_name[0])
+            print(password)
+            print("check check")
+            if password == input_name[0]:
+                request.session['username'] = request.POST["name"]
+                return HttpResponse("session created a worker is logged in")
+            else:
+                return HttpResponse(" a worker is not authorized")
+        elif type == "user" :
+            input_name = Worker.objects.filter(name = name ).values_list('password', flat = True)
+            print(input_name[0])
+            print(password)
+            print("check check")
+            if password == input_name[0]:
+                request.session['username'] = request.POST["name"]
+                return HttpResponse("session created a worker is logged in")
+            else:
+                return HttpResponse(" a worker is not authorized")
+
+
+def profile(request):
+    if request.method == "GET":
+        return render(request, "profile.html")
+
+
 
 
 

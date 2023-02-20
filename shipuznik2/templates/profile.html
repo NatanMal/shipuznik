@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+    <div class="wrapper">
+        <div class="nav">
+            <div class="nav-item"><a href="/">login 2 users</a></div>
+            <div class="nav-item"><a href="/">registration</a></div>
+            <div class="nav-item"><a href="/">projects</a></div>
+            <div class="nav-item"><a href="/login">login</a></div>
+            <div class="nav-item"><a href="/">admin restapi</a></div>
+            
+        </div>
+        <div class="mom">
+            <div class="form">
+                <form action="" method="POST"> 
+                    <h3>this is login window</h3>
+                    <input type="text" name="name" placeholder="name">
+                    <input type="text" name="password" placeholder="password">
+                    <select name="user">
+                    <option value="user">User</option>
+                    <option value="worker">Worker</option>    
+                <input type="submit">
+                </select>
+                </form>
+            </div>
+         </div>
+        </div>
+    </div>
+
+{% endblock content %}
