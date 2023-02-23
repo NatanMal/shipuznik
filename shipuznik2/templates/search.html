@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+    <div class="wrapper">
+        <div class="nav">
+            <div class="nav-item"><a href="/registration">REGISTRATION</a></div>
+            <div class="nav-item"><a href="/login">LOGIN</a></div>
+            <div class="nav-item"><a href="/profile">PROFILE</a></div>
+            <div class="nav-item"><a href="/">login</a></div>
+            <div class="nav-item"><a href="/">admin restapi</a></div>
+            
+        </div>
+        <div class="mom">
+            <div class="form">
+                <form action="" method="post">
+                <input type="text" name="q" placeholder="search"> <br>
+                <input type="submit">
+                </select>
+                </form>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>name</th>
+                            <th>email</th>
+                            <th>city</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for r in results %}
+                        <tr>
+                            <td>{{ r.name }}</td>
+                            <td>{{ r.email }}</td>
+                            <td>{{ r.city }}</td>
+
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+         </div>
+        </div>
+    </div>
+
+{% endblock content %}

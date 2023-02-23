@@ -13,18 +13,18 @@
         <div class="mom">
             <div class="form">
                 <form action="" method="POST"> 
-                    <h3>this is login window</h3>
+                    <h3>this is profile, create new project</h3>
                     <input type="text" name="name" placeholder="name">
-                    <input type="text" name="password" placeholder="password">
-                    <select name="user">
-                    <option value="user">User</option>
-                    <option value="worker">Worker</option>    
+                    <input type="text" name="description" placeholder="description">
+                    <select name="skill_id">
+                        {% for skill in skills %}
+                        <option value={{skill.skill_id}}>{{skill.skill_name}}</option>
+                        {% endfor %}
+                    </select>
                 <input type="submit">
-                </select>
                 </form>
             </div>
          </div>
         </div>
     </div>
-
 {% endblock content %}

@@ -13,6 +13,11 @@
         <input type="text" name = "phone" placeholder="phone"> <br>
         <input type="text" name = "city" placeholder="city"> <br>
         <input type="submit" >
+        <select name="type">
+            {% for skill in skills %}
+            <option value={{skill.skill_name}}>{{skill.skill_name}}</option>
+            {% endfor %}
+        <input type="submit">
     </form>
     
 </body>
