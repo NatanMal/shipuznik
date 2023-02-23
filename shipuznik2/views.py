@@ -66,13 +66,16 @@ def login(request):
 
 def profile(request):
     if request.method == "GET":
+        print("fckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkc")
         skills = Skills.objects.all()
         return render(request, "profile.html",{"skills": skills})
     if request.method == "POST":
+        print("sdlfjdslfsjflajs;dfjasdfkjaslfkjadslfkasdjflkasdjfalskfnalsdkfsadl")
         name = request.POST["name"]
         description = request.POST["description"]
         skill = request.POST["skill_id"]
-        user  = User.objects.get(name = request.session['username']).values('id')
+        print(skill)
+        user  = User.objects.filter(name=request.session['username']).values_list("id", flat=True).first()
         worker = 1 #change it in the future
         skills = Skills.objects.all()
         Project.objects.create(name = name, description = description,
