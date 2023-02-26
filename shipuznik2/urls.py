@@ -7,6 +7,8 @@ urlpatterns=[
     path('show', views.show, name = 'show'),
     path('login', views.login, name = 'login'),
     path('profile', views.profile, name = 'profile'),
-    path('search',views.search, name = 'search')
+    path('search',views.search, name = 'search'),
+    path('registration',views.registration, name = 'registration'),
+    path('browse',views.browse, name = 'browse')
 ]
 # name is the redirect

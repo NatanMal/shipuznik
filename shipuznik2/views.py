@@ -95,6 +95,19 @@ def search(request):
     )
     return render(request, "search.html", {"results": results})
 
+def browse(request):
+    if request.method == "GET":
+        worker = Worker.objects.all()
+        skills = Skills.objects.all()
+        for i in skills:
+            print(i.skill_name)
+        return render(request, "browse.html",{"worker" : worker,"skills": skills})
+    if request.method == "POST":
+        city = request.POST["city"]
+        skills = request.POST["skill"]
+        workers = Worker.objects.filter(city = city, skills = skills).values_list("name", flat=True)
+        print(workers)
+        return render(request, "browse.html", {"workers":  workers})
 
 
 

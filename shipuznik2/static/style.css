@@ -32,7 +32,7 @@ body {
   height: 500px;
   width: 500px;
   width: 100%;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   height: 100vh;
@@ -40,7 +40,7 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  display: flex;
+  display: flex;  
   justify-content: center;
   align-items: center;
   pointer-events: none;
@@ -48,27 +48,15 @@ body {
   
 }
 
-.gif{
-  height: 200px;
-  width: 200px;
-  background-color: blue;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  
-  
-}
-
 .form {
   float: left;
-  position: relative;
-  top: -150px;
+  position: fixed;
+  top: 100px;
   background-color: rgba(255, 255, 255, 0.2);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  width: 200px;
+  width: 300px;
   height: 300 px;
   display: flex;
   flex-direction: column;
@@ -76,6 +64,16 @@ body {
   pointer-events: auto;
   z-index: 6;
 
+}
+.mininav {
+
+  position: fixed;
+  top: 50px;
+  display: flex;
+  pointer-events: auto;
+  font-size: smaller;
+
+  
 }
 
 form input[type="text"], form select {
@@ -92,7 +90,7 @@ form input[type="submit"] {
 .nav {
 position: absolute;
 top: 50px;
-left: 10px;
+left: 62px;
 width: 15%;
 height: 70vh;
 display: flex;
@@ -104,25 +102,40 @@ pointer-events: auto;
 
 }
 .nav-item {
-  width: 120%;
+  width: 140%;
   height: 12.5%;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+  padding: 15px;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   text-align: center;
+  z-index: 2;
 }
 
+.nav-item:hover {
+  transform: translateX(-50%);
+  transition: transform 0.5s ease;
+}
+
+
+a span {
+  letter-spacing: normal; /* Reset letter-spacing for the rest of the text */
+}
+
+a::first-letter {
+  letter-spacing: 0.3em; /* Set larger letter-spacing for the first letter */
+}
 
 
 a:link {
-  color: #f40404;
+  color: rgb(98, 180, 247);
 }
 
 a:visited {
-  color: aqua;
+  color: rgb(98, 180, 247);
 
 }
 
