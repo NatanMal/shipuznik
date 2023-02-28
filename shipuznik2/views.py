@@ -49,6 +49,7 @@ def login(request):
             print("check check")
             if password == input_name[0]:
                 request.session['username'] = request.POST["name"]
+                request.session['type'] = request.POST["type"]
                 return HttpResponse("session created a worker is logged in")
             else:
                 return HttpResponse("a worker is not authorized")
@@ -59,28 +60,31 @@ def login(request):
             print("check check")
             if password == input_name[0]:
                 request.session['username'] = request.POST["name"]
+                request.session['type'] = request.POST["type"]
                 return HttpResponse("session created an user is logged in")
             else:
                 return HttpResponse(" an user is not authorized")
 
 
-def profile(request):
+def add_project(request):
     if request.method == "GET":
         print("fckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkc")
         skills = Skills.objects.all()
-        return render(request, "profile.html",{"skills": skills})
+        workers = Worker.objects.all()
+        return render(request, "add_project.html",{"skills": skills, "workers":workers})
     if request.method == "POST":
         print("sdlfjdslfsjflajs;dfjasdfkjaslfkjadslfkasdjflkasdjfalskfnalsdkfsadl")
         name = request.POST["name"]
         description = request.POST["description"]
         skill = request.POST["skill_id"]
+        worker = request.POST["worker_id"]
         print(skill)
         user  = User.objects.filter(name=request.session['username']).values_list("id", flat=True).first()
-        worker = 1 #change it in the future
         skills = Skills.objects.all()
+        workers = Worker.objects.all()
         Project.objects.create(name = name, description = description,
         skill_id_id = skill, user_id_id = user, worker_id_id = worker)
-        return render(request, "profile.html",{"skills": skills})
+        return render(request, "add_project.html",{"skills": skills, "workers":workers})
     
 
 def search(request):
@@ -99,15 +103,40 @@ def browse(request):
     if request.method == "GET":
         worker = Worker.objects.all()
         skills = Skills.objects.all()
-        for i in skills:
-            print(i.skill_name)
         return render(request, "browse.html",{"worker" : worker,"skills": skills})
     if request.method == "POST":
         city = request.POST["city"]
         skills = request.POST["skill"]
-        workers = Worker.objects.filter(city = city, skills = skills).values_list("name", flat=True)
-        print(workers)
-        return render(request, "browse.html", {"workers":  workers})
+        workers2 = Worker.objects.filter(city = city, skills = skills)
+        print(workers2)
+        worker = Worker.objects.all()
+        skills = Skills.objects.all()
+        return render(request, "browse.html", {"workers2":  workers2, "worker" : worker,"skills": skills })
+    
+def my_profile(request):
+    if request.method == "GET":
+        if request.session['type'] == "user":
+            print(request.session['type'])
+            name = request.session['username']
+            return render(request, "my_profile.html",{"name": name})
+        if request.session['type'] == "worker":
+            print(request.session['type'])
+            return render(request, "my_profile.html")
+        
+
+
+def my_projects(request):
+    if request.method == "GET":
+        if request.session['type'] == "user":
+            print(request.session['type'])
+            name = request.session['username']
+            user_id = User.objects.filter(name = name).values_list("id", flat= True).first()
+            print(user_id)
+            project = Project.objects.all().filter(user_id_id = user_id)
+            return render(request, "my_projects.html",{"name": name, "projects": project})
+        if request.session['type'] == "worker":
+            print(request.session['type'])
+            return render(request, "my_projects.html")
 
 
 

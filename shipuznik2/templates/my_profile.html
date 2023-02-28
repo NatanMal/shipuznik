@@ -11,22 +11,19 @@
             
         </div>
         <div class="mom">
+            <div class="mininav">
+                <div class="nav-item2"><a href="/my_profile" class="am1">MY PROFILE</a></div>
+                <div class="nav-item2"><a href="/my_projects" class="am1">PROJECTS</a></div>
+                <div class="nav-item2"><a href="/add_project" class="am1" >ADD/EDIT NEW PROJECT</a></div>
+            </div>
             <div class="form">
-                <form action="" method="POST"> 
-                    <div class="headline"> LOGIN
-                         </div> <br>
-                    <input type="text" name="name" placeholder="name">
-                    <input type="text" name="password" placeholder="password">
-                    <select name="type">
-                    <option value="user">User</option>
-                    <option value="worker">Worker</option>    
-                    
+            
+                <div class="headline"> welcome back, {{ name }}
+                </div> <br>
                 <input type="submit">
-                </select>
                 </form>
             </div>
          </div>
         </div>
     </div>
-
 {% endblock content %}

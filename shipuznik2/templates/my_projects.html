@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="container">
+    <div class="wrapper">
+        <div class="nav">
+            <div class="nav-item"><a href="/registration" class="am">REGISTRATION</a></div>
+            <div class="nav-item"><a href="/login" class="am">LOGIN</a></div>
+            <div class="nav-item"><a href="/profile" class="am">PROFILE</a></div>
+            <div class="nav-item"><a href="/browse" class="am">BROWSE</a></div>
+            <div class="nav-item"><a href="/">admin restapi</a></div>
+            
+        </div>
+        <div class="mom">
+            <div class="mininav">
+                <div class="nav-item2"><a href="/my_profile" class="am1">MY PROFILE</a></div>
+                <div class="nav-item2"><a href="/my_projects" class="am1">PROJECTS</a></div>
+                <div class="nav-item2"><a href="/add_project" class="am1" >ADD/EDIT NEW PROJECT</a></div>
+            </div>
+            <div class="form">
+            
+                <div class="headline"> welcome back, {{ name }}, here is upcoming projects
+                </div> <br>
+                <div class="grid-container">
+                    <div class="headline">Project Name</div>
+                    <div class="headline">Date </div>
+                    <div class="headline">Skill Required</div>
+                    <div class="headline">Choosen Worker </div>
+                    {% for project in projects %}
+                    <div>{{project.name}}</div>
+                    <div>{{project.description}}</div>
+                    <div>{{ project.skill_id.skill_name }}</div>
+                    <div>{{project.worker_id.name}}</div>
+                    {% endfor %}
+                  </div>
+                <input type="submit">
+                </form>
+            </div>
+         </div>
+        </div>
+    </div>
+{% endblock content %}

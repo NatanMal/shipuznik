@@ -3,21 +3,17 @@
     <div class="container">
     <div class="wrapper">
         <div class="nav">
-            <div class="nav-item"><a href="/registration">REGISTRATION</a></div>
-            <div class="nav-item"><a href="/login">LOGIN</a></div>
-            <div class="nav-item"><a href="/profile">PROFILE</a></div>
-            <div class="nav-item"><a href="/">login</a></div>
+            <div class="nav-item"><a href="/registration" class="am">REGISTRATION</a></div>
+            <div class="nav-item"><a href="/login" class="am">LOGIN</a></div>
+            <div class="nav-item"><a href="/my_profile" class="am">PROFILE</a></div>
+            <div class="nav-item"><a href="/browse" class="am">BROWSE</a></div>
             <div class="nav-item"><a href="/">admin restapi</a></div>
             
         </div>
         <div class="mom">
-            <div class="mininav">
-                <div class="nav-item"><a href="/registration">MY PROFILE</a></div>
-                <div class="nav-item"><a href="/login">PROJECTS</a></div>
-                <div class="nav-item"><a href="/profile">ADD/EDIT NEW PROJECT</a></div>
-            </div>
             <div class="form">
-                <h1>look here for the workers</h1>
+                <div class="headline"> Look for Workers
+                </div> <br>
                 <form action="" method="POST"> 
                     <select name="skill">
                         {% for skill in skills %}
@@ -31,10 +27,18 @@
                     </select>
                 <input type="submit">
                 </form>
-                    {% for worker in workers %}
-                    <li>{{worker}}</li>
-                    {% endfor %}
-
+                    <div class="grid-container">
+                        <div class="headline">Worker Name</div>
+                        <div class="headline"> Phone  </div>
+                        <div class="headline"> Skill</div>
+                        <div class="headline"> id</div>
+                        {% for worker in workers2 %}
+                        <div>{{worker.name}}</div>
+                        <div>{{worker.phone}}</div>
+                        <div></div>
+                        <div></div>
+                        {% endfor %}
+                      </div>
             </div>
          </div>
         </div>

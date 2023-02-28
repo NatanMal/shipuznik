@@ -21,23 +21,26 @@ body {
 .wrapper{
   height: 700px;
   width: 570px;
-  position: fixed;
+  position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);  
 }
 
+.headline {
+  text-align: center;
+}
 
 .mom{
   height: 500px;
   width: 500px;
   width: 100%;
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
   background-image: url(city.gif);
-  background-size: contain;
+  background-size: 80% 100%;
   background-repeat: no-repeat;
   background-position: center;
   display: flex;  
@@ -56,7 +59,7 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  width: 300px;
+  width: 400px;
   height: 300 px;
   display: flex;
   flex-direction: column;
@@ -70,10 +73,13 @@ body {
   position: fixed;
   top: 50px;
   display: flex;
+  flex-direction: row;
   pointer-events: auto;
-  font-size: smaller;
-
-  
+  align-items: center;
+  justify-content: space-evenly;
+}
+.mininav a{
+  margin: 7px;
 }
 
 form input[type="text"], form select {
@@ -90,7 +96,7 @@ form input[type="submit"] {
 .nav {
 position: absolute;
 top: 50px;
-left: 62px;
+left: 43px;
 width: 15%;
 height: 70vh;
 display: flex;
@@ -107,12 +113,18 @@ pointer-events: auto;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
-  padding: 15px;
+  padding: 13px;
   display: flex;
   justify-content: left;
   align-items: center;
   text-align: center;
   z-index: 2;
+}
+.nav-item2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
 }
 
 .nav-item:hover {
@@ -125,8 +137,21 @@ a span {
   letter-spacing: normal; /* Reset letter-spacing for the rest of the text */
 }
 
-a::first-letter {
+.am::first-letter {
   letter-spacing: 0.3em; /* Set larger letter-spacing for the first letter */
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+.am1:link {
+  color: black;
+}
+
+.am1:visited {
+  color: black;
+}
+.am1:hover {
+  color: rgb(47, 77, 122);
 }
 
 
@@ -146,4 +171,26 @@ a:hover {
 
 
 
+input[type="text"] {
+  border: 2px solid #ccc;
+  border-radius: 7px;
+  font-size: 16px;
+}
+ 
+input {
+  text-align: center;
+}
 
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: auto auto auto;
+  grid-gap: 10px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.headline {
+  font-weight: bold;
+  text-align: center;
+}
