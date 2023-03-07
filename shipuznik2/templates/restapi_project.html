@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    /* Reduce the font size for the table elements */
+    .tableshmock {
+        font-size: 11px;
+        border: solid;
+        width: 380px;
+    }
+
+
+input {
+  width: 50px;
+}
+input[type="text"] {
+    font-size: 11px;
+}
+input[type="submit"] {
+    font-size: 11px;
+}
+
+</style>
+    <div class="container">
+    <div class="wrapper">
+        <div class="nav">
+          <div class="nav-item"><a href="/registration" class="am">REGISTRATION</a></div>
+          <div class="nav-item"><a href="/login" class="am">LOGIN</a></div>
+          <div class="nav-item"><a href="/my_profile" class="am">PROFILE</a></div>
+          <div class="nav-item"><a href="/browse" class="am">BROWSE</a></div>
+          <div class="nav-item"><a href="/my_profile_worker" class="am">WORKER</a></div>
+          <div class="nav-item"><a href="/readme " class="am">README</a></div>
+            
+        </div>
+        <div class="mom">
+            <div class="mininav">
+                <div class="nav-item2"><a href="/my_profile" class="am1">MY PROFILE</a></div>
+                <div class="nav-item2"><a href="/my_projects" class="am1">PROJECTS</a></div>
+                <div class="nav-item2"><a href="/add_project" class="am1" >ADD/EDIT NEW PROJECT</a></div>
+                <div class="nav-item2"><a href="/add_project" class="am1" >asdfasdfas</a></div>
+            </div>
+            <div class="form">
+            
+                <div class="headline"> welcome back, {{ name }}
+                </div> <br>
+                <table class="tableshmock">
+                    <tr>
+                        <th>name </th>
+                        <th>description</th>
+                        <th>prices</th>
+                        <th>whatever</th>
+                      </tr>
+
+                      <form action="" method="POST">
+                        <tr>
+                          <th>{{ project.name }}</th>
+                          <th>{{ project.description }}</th>
+                          <th>
+                            <select name="" id="price">
+                              {% for price in project.price_set.all %}
+                                <option value="{{ price.amount }}">{{ price.amount }}</option>
+                              {% endfor %}
+                            </select>
+                            <input type="hidden" value="{{ project.id }}" name="id">
+                          </th>
+                          <th>
+                            {{ project.price }}
+                            <input type="text" name="price" placeholder="price">
+                            <input type="submit">
+                          </th>
+                        </tr>
+                      </form>
+            </div>
+         </div>
+        </div>
+    </div>
+{% endblock content %}

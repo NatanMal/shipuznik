@@ -43,3 +43,8 @@ class Project(models.Model):
 
     def __str__(self) -> str:
         return super().__str__()
+    
+class Price(models.Model):
+    project = models.ForeignKey(Project, on_delete=models.CASCADE)
+    amount = models.IntegerField()
+    worker = models.ForeignKey(Worker, on_delete=models.CASCADE, null=True, blank=True, default=None)

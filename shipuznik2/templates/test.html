@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <style>
+*{
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+}
+  </style>
+<h1>HELLOO</h1>
+    <table>
+        <tr>
+            <th>a</th>
+            <th>b</th>
+            <th>c</th>
+            <th>d</th>
+          </tr>
+        {% for project in projects %}
+        <form action="" method="POST">
+        <tr>
+          <th>{{project.name}}</th>
+          <th>{{ project.skill_id.skill_name }}</th>
+          <th><input type="hidden" value="{{project.id}}" name="id"></th>
+          <th>{{project.price}} <input type="text" name="price" placeholder="price">
+            <input type="submit"></th>
+        </tr>
+    </form>
+        {% endfor%}
+    
+</body>
+</html>
+

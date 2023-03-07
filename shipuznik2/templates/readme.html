@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .texterino{
+        width: 100%;
+        padding: 10px;
+    }
+</style>
+    <div class="container">
+    <div class="wrapper">
+        <div class="nav">
+            <div class="nav-item"><a href="/registration" class="am">REGISTRATION</a></div>
+            <div class="nav-item"><a href="/login" class="am">LOGIN</a></div>
+            <div class="nav-item"><a href="/my_profile" class="am">PROFILE</a></div>
+            <div class="nav-item"><a href="/browse" class="am">BROWSE</a></div>
+            <div class="nav-item"><a href="/my_profile_worker" class="am">WORKER</a></div>
+            <div class="nav-item"><a href="/readme " class="am">README</a></div>
+            
+        </div>
+        <div class="mom">
+            <div class="form">
+                <textarea name="" id="" cols="30" rows="20" class="texterino">
+                    
+
+Functionality, Features, and How to Start:
+
+Important note: This platform does not support anonymous browsing. You must register and log in to use the platform.
+
+To use the platform, you can register as a user or worker. Currently, most features are available for the worker category. Once you log in, you can go to your profile and browse all existing projects. You can submit the price either in a separate window or in the browsing window. You can also see the quotas you have submitted.
+
+As a user, the features are currently limited. You can create a project and attach a worker to it. Alternatively, in the navigation bar, you can browse workers according to their skills and city. Please note that only Israeli cities are available in the platform. To select an Israeli city, scroll down and choose a city, such as "painting".
+
+For testing purposes, you can use the following credentials: as a user, name: "user", password: "user"; as a worker, name: "worker", password: "worker".
+
+
+
+                </textarea>
+            </div>
+         </div>
+        </div>
+    </div>
+
+{% endblock content %}
